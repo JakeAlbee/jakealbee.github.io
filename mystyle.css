@@ -54,14 +54,18 @@ margin:0;
 padding:5px 10px;
 background:gray;
 }
-#main {
+<!--#main {
 float:left;
 width:480px;
 padding:10px;
 background:white;
-}
+} -->
 h2 {
 margin:0 0 1em;
+}
+.main {
+    background-color: #white;
+    height: 150px;
 }
 #sidebar {
 float:right;
