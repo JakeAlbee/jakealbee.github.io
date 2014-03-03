@@ -187,14 +187,8 @@ img = new Image();
 function draw(){
 ctx.clearRect(0,0,660,235);
 
-  //img.style.filter       = "alpha(opacity=75);";
   img.style.opacity = ".25"
   ctx.drawImage(img,0,0);
-  //ctx.fillStyle="rgba(0,0,0,0.7)"
-  //tx.fillRect(0,0,660,235);
-
-
-  //var sec = now.getSeconds();
   var now = new Date()
   var min = now.getMinutes()
   var hr  = now.getHours()
@@ -318,7 +312,7 @@ function main(){
   draw();
   curImg = 1
   changeImg()
-  setInterval(draw,1000);
+  setInterval(draw,10000);
 }
 var curImg
 function changeImg(){
