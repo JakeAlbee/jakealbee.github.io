@@ -66,9 +66,10 @@ beginWordLadder = function(){
     else if (info.startLen != info.endLen){
         alert("Your words are not the same legnth!!")
     }
-   /* else if (info.start == info.end){
+   else if (info.start == info.end){
         alert("Your words are already the same!")
-    }*/
+        return null;
+    }	
 
 	if (info.startLen == 3){
 		info.dict = threeLetterWords;
@@ -88,6 +89,17 @@ beginWordLadder = function(){
     	if (oneDif(info.dict[i],info.start) == true){
     		if (info.usedWords.contains(info.dict[i]) == false)
     		{
+	  /*  		if (info.dict[i] == info.end) //If it's the end return
+		    		{
+		    			//console.log(topWord)
+	    				var z = new Stack()
+	    				z.push(info.start)
+	    				z.push(info.dict[i])
+		    			//finalStack = currentStack.clone()
+		    			//finishedOrNot = true;
+		    			console.log("Done")
+		    			return z
+		    		}*/
 	    		var z = new Stack()
 	    		z.push(info.start)
 	    		z.push(info.dict[i])
@@ -105,6 +117,7 @@ beginWordLadder = function(){
     while (finishedOrNot == false){
     	currentStack = info.stackQueue.dequeue()
     	topWord = currentStack.pop()
+    	var usedLen = 0;
 	    for (var i= 0;i< info.dict.length;i++)
 	    {
 	    	if (info.usedWords.contains(info.dict[i]) == false)
@@ -133,6 +146,10 @@ beginWordLadder = function(){
 	    		}
     		}
     		else{
+    			usedLen +=1;
+    			if (usedLen >= info.dict.length){
+    				return 1;
+    			}
     		}
     	}
     } 
@@ -141,15 +158,19 @@ beginWordLadder = function(){
 
 main = function(){
 	lastLadder = beginWordLadder()
-	stackLength = finalStack.length()
+	if (lastLadder != null){
+	stackLength = lastLadder.length()
 	document.getElementById("output").innerHTML="";
 	var outField = document.getElementById("output")
 	out = document.createElement("ul")
-
+	
 		for(var i=0; i < stackLength;i++){
 			out.innerHTML = out.innerHTML + "<li>" + finalStack.pop() + "</li>"
 		}
-		outField.appendChild(out)
+		outField.appendChild(out)}
+		else if (lastLadder = 1){
+			alert("No ladder was possible")
+		}
 }
 
 oneDif = function(wordOne, wordTwo){
