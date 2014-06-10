@@ -1,33 +1,24 @@
 .floater1 {
     background-color: white;
-    height: 150px;
 }
-
 .floater2 {
     background-color: gray;
-    height: 150px;
+    color: white;
 }
-
 .floater3 {
     background-color: #D0D;
-    height: 150px;
 }
-
 .floater4 {
     background-color: #EEE;
-    height: 150px;
 }
-
 body {
     padding-top: 50px;
 }
-
-@media (max-width: 480px) { 
-        body {
-          font-size: 20px;
-        }
-
-        .hidden-phone {
-           display: block;
-        }
+@media (max-width: 480px) {
+    body {
+        font-size: 20px;
     }
+    .hidden-phone {
+        display: block;
+    }
+}
